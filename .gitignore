@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .vite
+
+# Deploy keys (do not commit)
+.deploy-keys/
