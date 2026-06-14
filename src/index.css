@@ -1,0 +1,107 @@
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 17px;
+    font-family: 'Noto Sans SC', 'Roboto', system-ui, sans-serif;
+  }
+
+  body {
+    background-color: #F5F7FA;
+    color: #1D2129;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 0.94rem;
+  }
+}
+
+@layer components {
+  /* 主按钮 */
+  .btn-primary {
+    @apply h-11 px-6 rounded-btn bg-primary text-white font-bold hover:bg-primary-light transition-colors;
+  }
+
+  /* 辅助按钮 */
+  .btn-accent {
+    @apply h-11 px-6 rounded-btn bg-accent text-white font-bold hover:bg-accent-dark transition-colors;
+  }
+
+  /* 危险按钮 */
+  .btn-danger {
+    @apply h-11 px-6 rounded-btn bg-warn-red text-white font-bold hover:opacity-90 transition-opacity;
+  }
+
+  /* 安全按钮 */
+  .btn-safe {
+    @apply h-11 px-6 rounded-btn bg-safe text-white font-bold hover:opacity-90 transition-opacity;
+  }
+
+  /* 次要按钮 */
+  .btn-secondary {
+    @apply h-11 px-6 rounded-btn bg-white text-ink border border-border font-medium hover:bg-bg transition-colors;
+  }
+
+  /* 卡片 */
+  .card {
+    @apply bg-white rounded-card shadow-card;
+  }
+
+  /* 输入框 */
+  .input-field {
+    @apply h-10 px-3 rounded-btn border border-border bg-white text-ink focus:outline-none focus:border-primary transition-colors w-full;
+  }
+
+  /* 标签 */
+  .tag {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium;
+  }
+}
+
+/* Leaflet 地图样式覆盖 */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* 自定义标记 */
+.custom-marker {
+  background: transparent;
+  border: none;
+}
+
+/* 预警闪烁动画 */
+@keyframes pulse-warn {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-warn {
+  animation: pulse-warn 1s ease-in-out infinite;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9CDD4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #86909C;
+}
